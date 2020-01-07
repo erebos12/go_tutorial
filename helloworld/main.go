@@ -8,6 +8,9 @@
 */
 package main
 
+/*
+  - import another package (reusable package)
+*/
 import "fmt"
 
 func main() {
