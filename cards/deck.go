@@ -9,6 +9,14 @@ We create a kind of "class" here were we define all related stuff to the
 
 type deck []string
 
+/* General syntax for a function in Go:
+
+func (<receiver-instance-variable> <receiver-type>)
+	 nameOfFunction (varName1 typeOfVar1, ..., varNameN typeOfVarN)
+	      (type-of-return-value1, ..., type-of-return-valueN)
+
+*/
+
 // function with receiver "d deck" - it acts like a member function for "deck"
 // receiver on a function
 func (d deck) print() {
@@ -30,4 +38,9 @@ func newDeck() deck {
 		}
 	}
 	return cards
+}
+
+// two values of type 'deck' will be returned in this function
+func deal(d deck, handsize int) (deck, deck) {
+	return d[:handsize], d[handsize:]
 }

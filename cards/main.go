@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 )
@@ -21,8 +22,12 @@ var cards = []string{
 
 func main() {
 	cards := newDeck()
+	hand, remainingDeck := deal(cards, 4)
 	// call receiver function "print()" from deck
-	cards.print()
+	fmt.Println(">>>> Your hand:")
+	hand.print()
+	fmt.Println(">>>> Remaining cards:")
+	remainingDeck.print()
 }
 
 func randomCard() string {
