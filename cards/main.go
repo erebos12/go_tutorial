@@ -20,13 +20,9 @@ var cards = []string{
 }
 
 func main() {
-	cards := deck{randomCard(), randomCard(), randomCard()}
+	cards := newDeck()
 	// call receiver function "print()" from deck
 	cards.print()
-}
-
-func newCard() string {
-	return "Five of Diamonds"
 }
 
 func randomCard() string {
