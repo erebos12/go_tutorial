@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 /* Lets add custom features to []string like methods.
 We create a kind of "class" here were we define all related stuff to the
@@ -30,7 +34,7 @@ func (d deck) print() {
 func newDeck() deck {
 	cards := deck{}
 	cardSuites := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
-	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Jack", "Quenn", "King"}
+	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Jack", "Queen", "King"}
 	// _ == placeholder for an unused variable
 	for _, suit := range cardSuites {
 		for _, value := range cardValues {
@@ -40,7 +44,17 @@ func newDeck() deck {
 	return cards
 }
 
+// NO RECEIVER HERE! HERE 'DECK' IS AN ARGUMENT!
 // two values of type 'deck' will be returned in this function
 func deal(d deck, handsize int) (deck, deck) {
 	return d[:handsize], d[handsize:]
+}
+
+// turns a 'deck' into one comma separated string
+func (d deck) toString() string {
+	return strings.Join([]string(d), ", ")
+}
+
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 777)
 }
