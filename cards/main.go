@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
@@ -12,14 +11,18 @@ var cards = []string{
 	"Ace of spades",
 	"Six of spades",
 	"Seven of spades",
+	"King of hearts",
+	"Queen of hearts",
+	"Jack of hearts",
+	"King of clubs",
+	"Queen of clubs",
+	"Jack of clubs",
 }
 
 func main() {
-	cards := []string{randomCard(), randomCard(), randomCard()}
-	//cards = append(cards, "Seven of spades")
-	for i, card := range cards {
-		fmt.Println(i, card)
-	}
+	cards := deck{randomCard(), randomCard(), randomCard()}
+	// call receiver function "print()" from deck
+	cards.print()
 }
 
 func newCard() string {
