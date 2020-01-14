@@ -30,7 +30,20 @@ func main() {
 			zipCode: 56659,
 		},
 	}
-	person3.print()
+	// 1. Turn an address into value then use *address
+	// 2. Turn a value into address then use &value
+	fmt.Printf("main() -> Person3 Origin Address: %p\n", &person3)
+	(&person3).updateName("Snake")
+	(&person3).print()
+}
+
+// !!! func (var *anyType) == is NOT dereferencing a variable, its a descriptive way to say this is type of pointer
+func (p *person) updateName(newFirstName string) {
+	fmt.Printf("updateName() -> Address of the pointer: %p\n", &p)
+	fmt.Printf("updateName() -> Address of the person itself: %p\n", &(*p))
+	// !!! here (*p) is really dereferencing to get the actual value - NOT THE SAME AS IN THE SIGNATURE
+	(*p).firstName = newFirstName // (*p) == dereferencing, so that I get the value from the address
+
 }
 
 func (p person) print() {
