@@ -9,6 +9,9 @@ import (
 	"time"
 )
 
+var cardSuites = []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+var cardValues = []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Jack", "Queen", "King"}
+
 /* Lets add custom features to []string like methods.
 We create a kind of "class" here were we define all related stuff to the
 'type deck []string'.
@@ -36,10 +39,7 @@ func (d deck) print() {
 //returns a value of type deck
 func newDeck() deck {
 	cards := deck{}
-	cardSuites := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
-	cardValues := []string{"Ace", "Two", "Three", "Four", "Five", "Six", "Jack", "Queen", "King"}
-	// _ == placeholder for an unused variable
-	for _, suit := range cardSuites {
+	for _, suit := range cardSuites { // _ == placeholder for an unused variable
 		for _, value := range cardValues {
 			cards = append(cards, value+" of "+suit)
 		}
