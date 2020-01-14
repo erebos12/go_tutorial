@@ -33,11 +33,16 @@ func main() {
 	// 1. Turn an address into value then use *address
 	// 2. Turn a value into address then use &value
 	fmt.Printf("main() -> Person3 Origin Address: %p\n", &person3)
-	(&person3).updateName("Snake")
-	(&person3).print()
+	/* Pointer Shortcut:
+	   --> person3 is type of person, NOT type of *person as the receiver func expects
+	   --> actually we need to type: (&person3).updateName("newName")
+	   --> BUT this is working - it's a pointer shortcut
+	*/
+	person3.updateName("Snake")
+	person3.print()
 }
 
-// !!! func (var *anyType) == is NOT dereferencing a variable, its a descriptive way to say this is type of pointer
+// !!! func (var *anyType) == is NOT dereferencing a variable, its a descriptive way to say this is type of pointer to a person
 func (p *person) updateName(newFirstName string) {
 	fmt.Printf("updateName() -> Address of the pointer: %p\n", &p)
 	fmt.Printf("updateName() -> Address of the person itself: %p\n", &(*p))
