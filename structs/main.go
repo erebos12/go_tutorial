@@ -15,13 +15,12 @@ type person struct {
 
 func main() {
 	person1 := person{firstName: "Tyrion", lastName: "Lannister"}
-	fmt.Printf("Person: %+v\n", person1)
+	person1.print()
 
 	var person2 person
 	person2.firstName = "Jaime"
 	person2.lastName = "Lannister"
-
-	fmt.Printf("Person: %+v\n", person2)
+	person2.print()
 
 	person3 := person{
 		firstName: "Cersei",
@@ -31,5 +30,9 @@ func main() {
 			zipCode: 56659,
 		},
 	}
-	fmt.Printf("Person: %+v\n", person3)
+	person3.print()
+}
+
+func (p person) print() {
+	fmt.Printf("Person: %+v\n", p)
 }
