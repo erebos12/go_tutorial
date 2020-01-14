@@ -13,7 +13,7 @@ func TestEvenAndOdd(t *testing.T) {
 	}
 	actual = evenOrOdd(2)
 	if isEqual(even, actual) == false {
-		t.Errorf("Expected %v, but got %v", odd, actual)
+		t.Errorf("Expected %v, but got %v", even, actual)
 	}
 	actual = evenOrOdd(3)
 	if isEqual(odd, actual) == false {
