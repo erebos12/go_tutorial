@@ -37,3 +37,14 @@ our specific values:
 greeting := "Hello World!"
 []byte(greeting)
 ```
+
+## Error Handling
+
+Common Go pattern is:
+
+```
+result, error := someFunctionCanThrowAnError()
+if error != nil {
+// logit or panic or exit or whatever
+}
+```
