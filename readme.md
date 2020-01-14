@@ -147,3 +147,9 @@ WHY:
 <table><tr><td>
 <img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="500">
 </td></tr></table>
+
+In Go we refer to these kind of types as "reference types" which all have this behaviour.
+
+<table><tr><td>
+<img align="center" src="./pics/reference_types.png" title="Passing a slice to a function" width="500">
+</td></tr></table>
