@@ -48,3 +48,6 @@ if error != nil {
 // logit or panic or exit or whatever
 }
 ```
+
+## Pointers
+
