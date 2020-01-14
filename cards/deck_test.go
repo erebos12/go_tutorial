@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
@@ -16,4 +19,20 @@ func TestNewDeck(t *testing.T) {
 	if d[el-1] != es {
 		t.Errorf("Expected deck len of %v, but got %v", es, d[el-1])
 	}
+}
+
+func TestSaveToDeckAndNewDeckFromFile(t *testing.T) {
+	filename := "_decktesting"
+	os.Remove(filename)
+
+	deck := newDeck()
+	deck.saveToFile(filename)
+
+	loadedDeck := newDeckFromFile(filename)
+
+	el := 36
+	if len(loadedDeck) != el {
+		t.Errorf("Expected deck len of %v, but got %v", el, len(deck))
+	}
+	os.Remove(filename)
 }
