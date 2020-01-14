@@ -51,7 +51,7 @@ if error != nil {
 }
 ```
 
-## Pointers to structs
+## Pointers and Operators
 
 1. Turn an address into value then use *address
 2. Turn a value into address then use &value
@@ -117,3 +117,33 @@ func main() {
 
 ```
 **Answer**: The string "Bill".
+
+**Question** What will the main() function will print out?
+```
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	mySlice := []string{"Hi", "There"}
+	updateSlice(mySlice)
+	fmt.Println(mySlice)
+}
+
+func updateSlice(s []string){
+    s[0] = "Bye"
+}
+```
+
+**Answer**: "Bye There"
+It's not like passing a struct which would be copied. Because a slice is structured as follows:
+
+WHY:
+
+```slice``` in Go consists of pointer to head of an array, capacity of the array and length of the array. So when we call a function with a slice then Go created a copy (call-by-value) of the slice metadata in me ory, not a copy of the referenced array.
+
+<table><tr><td>
+<img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="500">
+</td></tr></table>
