@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 /* Lets add custom features to []string like methods.
@@ -70,4 +72,11 @@ func newDeckFromFile(filename string) deck {
 	// s := strings.Split(ds, ",") - slice of string with all cards
 	// return deck(s) - create a deck out of slice of string ([]string)
 	return deck(strings.Split(string(bs), ","))
+}
+
+func (d deck) shuffle() deck {
+	rand.Seed(time.Now().UnixNano())
+	s := []string(d)
+	rand.Shuffle(len(s), func(i, j int) { s[i], s[j] = s[j], s[i] })
+	return s
 }
