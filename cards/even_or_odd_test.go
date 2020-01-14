@@ -16,8 +16,8 @@ func TestEvenAndOdd(t *testing.T) {
 		t.Errorf("Expected %v, but got %v", odd, actual)
 	}
 	actual = evenOrOdd(3)
-	if isEqual(even, actual) == false {
-		t.Errorf("Expected %v, but got %v", even, actual)
+	if isEqual(odd, actual) == false {
+		t.Errorf("Expected %v, but got %v", odd, actual)
 	}
 }
 
