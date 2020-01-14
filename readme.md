@@ -142,7 +142,7 @@ It's not like passing a struct which would be copied. Because a slice is structu
 
 WHY:
 
-```slice``` in Go consists of pointer to head of an array, capacity of the array and length of the array. So when we call a function with a slice then Go created a copy (call-by-value) of the slice metadata in me ory, not a copy of the referenced array.
+```slice``` in Go consists of pointer to head of an array, capacity of the array and length of the array. So when we call a function with a slice then Go created a copy (call-by-value) of the slice metadata in memory, not a copy of the referenced array. See image below:
 
 <table><tr><td>
 <img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="500">
