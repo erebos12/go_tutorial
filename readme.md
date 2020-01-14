@@ -137,12 +137,13 @@ func updateSlice(s []string){
 }
 ```
 
-**Answer**: "Bye There"
-It's not like passing a struct which would be copied. Because a slice is structured as follows:
+**Answer**: "Bye There".
 
 WHY:
 
-```slice``` in Go consists of pointer to head of an array, capacity of the array and length of the array. So when we call a function with a slice then Go created a copy (call-by-value) of the slice metadata in memory, not a copy of the referenced array. See image below:
+It's not like passing a `struct` which would be copied. slices (and other types) are special kind of types and are handled differently in memory by Go.
+
+A ```slice``` in Go consists of a pointer to the head of an array, the capacity of the array and the length of the array. These metadata of the slice are stored in a separate register address. So when we call a function with a slice then Go creates a copy (call-by-value) of the slice metadata in memory, not a copy of the referenced array. See image below:
 
 <table><tr><td>
 <img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="500">
