@@ -131,7 +131,7 @@ func main() {
 ```
 > **Answer**: The string "Bill".
 
-**Question** What will the main() function will print out?
+**Question** What will the main() function print out?
 ```
 package main
 
@@ -165,5 +165,5 @@ A ```slice``` in Go consists of a pointer to the head of an array, the capacity 
 In Go we refer to these kind of types as "reference types" which all have this behaviour.
 
 <table><tr><td>
-<img align="center" src="./pics/reference_types.png" title="Passing a slice to a function" width="500">
+<img align="center" src="./pics/reference_types.png" title="Passing a slice to a function" width="800">
 </td></tr></table>
