@@ -68,20 +68,17 @@ The `&` operator generates a pointer to its operand.
 ```
 func (p *person) updateName(newFirstName string) {
 ```
-**Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value (no dereferencing!!!).
+> **Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value (no dereferencing!!!).
 
 
 **Question**: Whenever you pass an integer, float, string, or struct into a function, what does Go do with that argument?
-
-**Answer**: It creates a copy of each argument, and these copies are used inside of the function.
+> **Answer**: It creates a copy of each argument, and these copies are used inside of the function.
 
 **Question**: What is the &  operator used for?
-
-**Answer**: Turning a value into a pointer.
+> **Answer**: Turning a value into a pointer.
 
 **Question**: When you see a `*` operator in front of a pointer, what will it turn the pointer into?
-
-**Answer**: A value.
+> **Answer**: A value.
 
 **Question**: Take a look at the following program.  The changeLatitude function expects a receiver of type pointer to a location struct , but in the main function the receiver is a value type of a struct.  What will happen when this code is executed?
 
@@ -111,7 +108,7 @@ func (lo *location) changeLatitude() {
 }
 
 ```
-**Answer**: This program uses a shortcut, where Go will automatically assume even though ``` newYork.changeLatitude() ``` is using a value type we probably meant to pass in a pointer to the ```newYork``` struct.
+> **Answer**: This program uses a shortcut, where Go will automatically assume even though ``` newYork.changeLatitude() ``` is using a value type we probably meant to pass in a pointer to the ```newYork``` struct.
 
 
 **Question**: Here's a tricky one!  What will the following program print out?
@@ -127,7 +124,7 @@ func main() {
 }
 
 ```
-**Answer**: The string "Bill".
+> **Answer**: The string "Bill".
 
 **Question** What will the main() function will print out?
 ```
@@ -148,9 +145,9 @@ func updateSlice(s []string){
 }
 ```
 
-**Answer**: "Bye There".
+> **Answer**: "Bye There".
 
-WHY:
+WHY IS THE SLICE NOT COPIED HERE?
 
 It's not like passing a `struct` which would be copied. slices (and other types) are special kind of types and are handled differently in memory by Go.
 
