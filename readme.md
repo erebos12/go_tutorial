@@ -51,25 +51,36 @@ if error != nil {
 }
 ```
 
-## Pointers and Operators
+## Pointers and * & Operators
 
-1. Turn an address into value then use *address
-2. Turn a value into address then use &value
+A pointer holds the memory address of a value.
+In Go a pointer is represented using the `*` (asterisk) character followed by the type of the stored value.
+`*` is also used to "dereference" pointer variables. Dereferencing a pointer gives us access to the value the pointer points to.
+
+The `&` operator generates a pointer to its operand.
+
+1. To turn an address into a value then use `*address`
+2. To turn a value into an address then use `&value`
+
+### Question / Answer about Pointers
 
 **Question**: Whenever you have a pointer in the receiver of a function (see snippet), what does that say to us?
 ```
 func (p *person) updateName(newFirstName string) {
 ```
-**Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value.
+**Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value (no dereferencing!!!).
 
 
 **Question**: Whenever you pass an integer, float, string, or struct into a function, what does Go do with that argument?
+
 **Answer**: It creates a copy of each argument, and these copies are used inside of the function.
 
 **Question**: What is the &  operator used for?
+
 **Answer**: Turning a value into a pointer.
 
-**Question**: When you see a * operator in front of a pointer, what will it turn the pointer into?
+**Question**: When you see a `*` operator in front of a pointer, what will it turn the pointer into?
+
 **Answer**: A value.
 
 **Question**: Take a look at the following program.  The changeLatitude function expects a receiver of type pointer to a location struct , but in the main function the receiver is a value type of a struct.  What will happen when this code is executed?
