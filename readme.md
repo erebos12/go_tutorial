@@ -54,8 +54,13 @@ if error != nil {
 ## Pointers and * & Operators
 
 A pointer holds the memory address of a value.
+As an analogy, a page number in a book's index could be considered a pointer to the corresponding page; dereferencing such a pointer would be done by flipping to the page with the given page number and reading the text found on that page. 
+
+
 In Go a pointer is represented using the `*` (asterisk) character followed by the type of the stored value.
-`*` is also used to "dereference" pointer variables. Dereferencing a pointer gives us access to the value the pointer points to.
+`*` is also used to dereference pointer variables. Dereferencing a pointer gives us access to the value the pointer points to.
+
+
 
 The `&` operator generates a pointer to its operand.
 
