@@ -181,7 +181,7 @@ Below an overview of all "**reference types**" and "**value types**":
 ## struct vs. map
 
 <table><tr><td>
-<img align="center" src="./pics/structs_vs_map.png" title="Passing a slice to a function" width="500">
+<img align="center" src="./pics/structs_vs_map.png" title="Passing a slice to a function" width="650">
 </td></tr></table>
 
 * Over a `struct` we cannot iterate!
