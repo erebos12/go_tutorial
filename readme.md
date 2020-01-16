@@ -5,8 +5,13 @@
 * Statically typed language
 
 * Paas-by-Value language
+  
+Golang is a multi paradigm programming language. It has aspects of object-orientation, procedural and functional programming.
 
-Package Documentation https://golang.org/pkg/
+As a Golang programmer why uses functional programming?
+Golang is not a functional language but have a lot of features that enables us to applies functional principles in the development, turning our code more elegant, concise, maintanable, easier to understand and test.
+
+Documentation https://golang.org
 
 ## From OO Aproach to Go Approach
 
@@ -186,3 +191,13 @@ Below an overview of all "**reference types**" and "**value types**":
 
 * Over a `struct` we cannot iterate!
 * `map` is a more dynamic data type. It can grow or shrink at runtime. In opposite the `struct` has always the same attributes, so its a more static data type.
+
+## Interfaces
+
+In Java you say `xyz implements interfaceXYZ` to describe xyz is an implementor of an interface.
+In Go you just implement exactly the same function (same signature) which is defines in an interface for a specific receiver.
+Theres is no explicit way (syntax) to link together receiver type and interface type because interfaces are implicit. Implicitly, they are connected with each other.
+
+<table><tr><td>
+<img align="center" src="./pics/interfaces.png" title="Passing a slice to a function" width="650">
+</td></tr></table>
