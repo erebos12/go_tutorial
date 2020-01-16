@@ -9,11 +9,11 @@ The functional programming paradigm was explicitly created to support a pure fun
 ```
 def fib(n): 
     if n==1: 
-		return 0
-	elif n==2: 
-		return 1
-	else: 
-		return fib(n-1)+fib(n-2) 
+        return 0
+    elif n==2: 
+        return 1
+    else: 
+        return fib(n-1)+fib(n-2) 
 ```
 
 **Declarative/Functional Approach in ELIXIR**
