@@ -173,7 +173,7 @@ A ```slice``` in Go consists of a pointer to the head of an array, the capacity 
 
 In Go we refer to these kind of types as "**reference types**" which all have this behaviour. All other types, which will be copied (call-by-value), are called "**value types**".
 
-Bewlow an overview of all "**reference types**" and "**value types**":
+Below an overview of all "**reference types**" and "**value types**":
 <table><tr><td>
 <img align="center" src="./pics/reference_types.png" title="Passing a slice to a function" width="800">
 </td></tr></table>
@@ -181,7 +181,7 @@ Bewlow an overview of all "**reference types**" and "**value types**":
 ## struct vs. map
 
 <table><tr><td>
-<img align="center" src="./pics/structs_vs_map.png" title="Passing a slice to a function" width="800">
+<img align="center" src="./pics/structs_vs_map.png" title="Passing a slice to a function" width="500">
 </td></tr></table>
 
 * Over a `struct` we cannot iterate!
