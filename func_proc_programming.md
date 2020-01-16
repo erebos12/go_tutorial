@@ -2,6 +2,27 @@
 
 The functional programming paradigm was explicitly created to support a pure functional approach to problem solving. `Functional` programming is a form of `declarative` programming. In contrast, most mainstream languages, including object-oriented programming (OOP) languages such as C#, Visual Basic, C++, and Java, were designed to primarily support `imperative` (`procedural`) programming.
 
+### Example of Fibonacci
+
+**Imperative/Procedural Approach in PYTHON**
+
+```
+def fib(n): 
+    if n==1: 
+		return 0
+	elif n==2: 
+		return 1
+	else: 
+		return fib(n-1)+fib(n-2) 
+```
+
+**Declarative/Functional Approach in ELIXIR**
+```
+def fib(0), do: 0
+def fib(1), do: 1
+def fib(n), do: fib(n-1) + fib(n-2)
+```
+
 With an `imperative` approach, a developer writes code that describes in exacting detail the steps that the computer must take to accomplish the goal. This is sometimes referred to as algorithmic programming. In contrast, a `functional` approach involves composing the problem as a set of functions to be executed. You define carefully the input to each function, and what each function returns. The following table describes some of the general differences between these two approaches.
 
 <table><tr><td>
