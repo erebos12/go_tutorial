@@ -16,6 +16,14 @@ type <name_of_type> <datatype>
 
 Receiver vs. Argument !
 
+Receiver can just be of type:
+
+```
+type name struct {...}
+```
+ So plain type as map or slice cannot be defined as a receiver. That's why you
+need to wrap these types in a `struct`.
+
 ## Unused variables with "_"
 
 ## Slices
@@ -39,6 +47,7 @@ our specific values:
 greeting := "Hello World!"
 []byte(greeting)
 ```
+
 
 ## Error Handling
 
@@ -162,8 +171,18 @@ A ```slice``` in Go consists of a pointer to the head of an array, the capacity 
 <img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="500">
 </td></tr></table>
 
-In Go we refer to these kind of types as "reference types" which all have this behaviour.
+In Go we refer to these kind of types as "**reference types**" which all have this behaviour. All other types, which will be copied (call-by-value), are called "**value types**".
 
+Bewlow an overview of all "**reference types**" and "**value types**":
 <table><tr><td>
 <img align="center" src="./pics/reference_types.png" title="Passing a slice to a function" width="800">
 </td></tr></table>
+
+## struct vs. map
+
+<table><tr><td>
+<img align="center" src="./pics/structs_vs_map.png" title="Passing a slice to a function" width="800">
+</td></tr></table>
+
+* Over a `struct` we cannot iterate!
+* `map` is a more dynamic data type. It can grow or shrink at runtime. In opposite the `struct` has always the same attributes, so its a more static data type.
