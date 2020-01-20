@@ -180,13 +180,13 @@ In Go we refer to these kind of types as "**reference types**" which all have th
 
 Below an overview of all "**reference types**" and "**value types**":
 <table><tr><td>
-<img align="center" src="./pics/reference_types.png" title="Passing a slice to a function" width="800">
+<img align="center" src="./pics/reference_types.png" title="Reference and Value Types" width="800">
 </td></tr></table>
 
 ## struct vs. map
 
 <table><tr><td>
-<img align="center" src="./pics/structs_vs_map.png" title="Passing a slice to a function" width="650">
+<img align="center" src="./pics/structs_vs_map.png" title="struct vs. map" width="650">
 </td></tr></table>
 
 * Over a `struct` we cannot iterate!
@@ -199,7 +199,7 @@ In Go you just implement exactly the same function (same signature) which is def
 There is no explicit way (syntax) to link together receiver type and interface type because interfaces are implicit. Implicitly, they are connected with each other.
 
 <table><tr><td>
-<img align="center" src="./pics/interfaces.png" title="Passing a slice to a function" width="650">
+<img align="center" src="./pics/interfaces.png" title="About interfaces" width="650">
 </td></tr></table>
 
 ### Composition of Interfaces
@@ -219,3 +219,11 @@ type ReadSeeker interface {
       Seeker // is also an interface
 }
 ```
+
+## Sample of Reader-Interface
+
+You have different types of input and Reader-Interface converts it to same aggregated common output, here `[]byte` (slice of bytes). How you create this slice of bytes is depending on the type of input. This must be implemented!
+
+<table><tr><td>
+<img align="center" src="./pics/reader_interface.png" title="Reader Interface" width="650">
+</td></tr></table>
