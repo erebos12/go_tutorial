@@ -4,7 +4,7 @@
 
 * Statically typed language
 
-* Paas-by-Value language
+* Pass-by-Value language
   
 Golang is a multi paradigm programming language. It has aspects of object-orientation (structs), procedural and functional programming.
 
@@ -222,8 +222,17 @@ type ReadSeeker interface {
 
 ## Sample of Reader-Interface
 
-You have different types of input and Reader-Interface converts it to same aggregated common output, here `[]byte` (slice of bytes). How you create this slice of bytes is depending on the type of input. This must be implemented!
+You have different types of input and Reader-Interface converts it to same aggregated common output, here `[]byte` (slice of bytes). 
 
 <table><tr><td>
 <img align="center" src="./pics/reader_interface.png" title="Reader Interface" width="650">
 </td></tr></table>
+
+This is the signature of the `Reader` interface:
+
+```go
+type Reader interface {
+     Read (p []byte) (n int, err error)
+}
+```
+Since `p []byte` is a slice of bytes, remember slice is a reference type, the original slice will be used in the `Read` function. That's why this signature has no extra argument of the slice.
