@@ -6,7 +6,7 @@
 
 * Paas-by-Value language
   
-Golang is a multi paradigm programming language. It has aspects of object-orientation, procedural and functional programming.
+Golang is a multi paradigm programming language. It has aspects of object-orientation (structs), procedural and functional programming.
 
 As a Golang programmer why uses functional programming?
 Golang is not a functional language but have a lot of features that enables us to applies functional principles in the development, turning our code more elegant, concise, maintanable, easier to understand and test.
@@ -23,7 +23,7 @@ Receiver vs. Argument !
 
 Receiver can just be of type:
 
-```
+```go
 type name struct {...}
 ```
  So plain type as map or slice cannot be defined as a receiver. That's why you
@@ -48,7 +48,7 @@ Same goes for end index!
 Many interfaces in Go work with slice-of-bytes ([]byte). So we need to convert
 our specific values:
 
-```
+```go
 greeting := "Hello World!"
 []byte(greeting)
 ```
@@ -58,7 +58,7 @@ greeting := "Hello World!"
 
 Common Go pattern is:
 
-```
+```go
 result, error := someFunctionCanThrowAnError()
 if error != nil {
 // logit or panic or exit or whatever
@@ -101,7 +101,7 @@ func (p *person) updateName(newFirstName string) {
 
 **Question**: Take a look at the following program.  The changeLatitude function expects a receiver of type pointer to a location struct , but in the main function the receiver is a value type of a struct.  What will happen when this code is executed?
 
-```
+```go
 package main
  
 import "fmt"
@@ -132,7 +132,7 @@ func (lo *location) changeLatitude() {
 
 **Question**: Here's a tricky one!  What will the following program print out?
 
-```
+```go
 package main
  
 import "fmt"
@@ -146,7 +146,7 @@ func main() {
 > **Answer**: The string "Bill".
 
 **Question** What will the main() function print out?
-```
+```go
 package main
 
 import (
@@ -195,9 +195,27 @@ Below an overview of all "**reference types**" and "**value types**":
 ## Interfaces
 
 In Java you say `xyz implements interfaceXYZ` to describe xyz is an implementor of an interface.
-In Go you just implement exactly the same function (same signature) which is defines in an interface for a specific receiver.
-Theres is no explicit way (syntax) to link together receiver type and interface type because interfaces are implicit. Implicitly, they are connected with each other.
+In Go you just implement exactly the same function (same signature) which is defined in an interface for a specific receiver.
+There is no explicit way (syntax) to link together receiver type and interface type because interfaces are implicit. Implicitly, they are connected with each other.
 
 <table><tr><td>
 <img align="center" src="./pics/interfaces.png" title="Passing a slice to a function" width="650">
 </td></tr></table>
+
+### Composition of Interfaces
+
+We can create an interface which has includes multiple other interfaces:
+
+```go
+type ReadCloser interface {
+      Reader // is also an interface
+      Closer  // is also an interface
+}
+```
+OR 
+```go
+type ReadSeeker interface {
+      Reader // is also an interface
+      Seeker // is also an interface
+}
+```
