@@ -220,7 +220,7 @@ type ReadSeeker interface {
 }
 ```
 
-## Sample of Reader-Interface
+### Sample of Reader-Interface
 
 You have different types of input and Reader-Interface converts it to same aggregated common output, here `[]byte` (slice of bytes). 
 
@@ -237,6 +237,8 @@ type Reader interface {
 ```
 Since `p []byte` is a slice of bytes, remember slice is a reference type, the original slice will be used in the `Read` function. That's why this signature has no extra argument of the slice.
 
+
+### Test questions about interfaces
 
 **Question**: In the following code, does the `square` type satisfy the `shape` interface?
 
