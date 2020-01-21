@@ -236,3 +236,89 @@ type Reader interface {
 }
 ```
 Since `p []byte` is a slice of bytes, remember slice is a reference type, the original slice will be used in the `Read` function. That's why this signature has no extra argument of the slice.
+
+
+**Question**: In the following code, does the `square` type satisfy the `shape` interface?
+
+```go
+type shape interface {
+    area() int
+}
+ 
+type square struct {
+    sideLength int
+}
+ 
+func (s square) area() int {
+    return s.sideLength * s.sideLength
+}
+ 
+func printArea(s shape) {
+    fmt.Println(s.area())
+}
+
+```
+> **Answer**: Yes, because `square` defines the `area` function that returns an `int`.
+
+**Question**: Does the `rectangle` type satisfy the `shape` interface?
+```go
+type shape interface {
+    area() int
+}
+ 
+type square struct {
+    sideLength int
+}
+ 
+type rectangle struct {
+    height float64
+    width float64
+}
+ 
+func (s square) area() int {
+    return s.sideLength * s.sideLength
+}
+ 
+func (r rectangle) area() float64 {
+    return r.height * r.width
+}
+ 
+func printArea(s shape) {
+    fmt.Println(s.area())
+}
+```
+> **Answer**: No, because the rectangle's version of the `area` function returns a `float64`, but the `shape` interface expects a return type of `int`.
+
+**Question**: Type square appears to successfully implement the shape interface, but the implementation of square 's area function looks broken - it always returns a value of 10 no matter what the side length of the square is.  Will the shape  interface do anything to help us catch this error?
+
+```go
+type shape interface {
+    area() int
+}
+ 
+type square struct {
+    sideLength int
+}
+ 
+func (s square) area() int {
+    return 10
+}
+ 
+func printArea(s shape) {
+    fmt.Println(s.area())
+}
+```
+> **Answer**: No, interfaces are only used to help with types. We can still easily code that does something completely wrong.
+
+**Question**: Imagine that you ask a coworker to create a new type that implements the Reader  interface to take data from a text file and print it on the screen.  They present you with the following code:
+
+```go
+type textFileReader struct {}
+ 
+func (textFileReader) Read(bs []byte) (int, error) {
+    return "Information from a text file"
+}
+```
+What would you say?
+
+> **Answer**: I'd say that while the `testFileReader` type conforms to the requirements of the `Reader` interface, it doesn't actually implement the desired behaviour of reading a file from the hard drive.
