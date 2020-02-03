@@ -7,7 +7,7 @@ When you are type with exactly this function 'getGreeting() string'
 then you are a honorary member of type bot. So you can now call the
 function 'func printGreeting(b bot)'.
 
-In Java you say "xyz implements interfaceXYZ" to describe xyz is an implementor of an interface.
+In Java you say "xyz implements interface" to describe xyz is an implementor of an interface.
 In Go you just implement exactly the same function for a specific receiver.
 Theres is no need to link together 'bot' and 'englishBot/spanishBot' because interfaces are implicit.
 Implicitly, they are connected with each other.
