@@ -2,13 +2,14 @@
 
 * Not an OO language !!!
 
-* Statically typed language
+* Statically typed language (see [Statically vs Dynamically Typed Languages](https://android.jlelse.eu/magic-lies-here-statically-typed-vs-dynamically-typed-languages-d151c7f95e2b))
+  * A language is dynamically-typed if the type of a variable is checked during run-time. 
+  * A language is statically-typed if the type of a variable is known at compile-time instead of at run-time. 
 
 * Pass-by-Value language
   
 Golang is a multi paradigm programming language. It has aspects of object-orientation (structs), procedural and functional programming.
 
-As a Golang programmer why uses functional programming?
 Golang is not a functional language but have a lot of features that enables us to applies functional principles in the development, turning our code more elegant, concise, maintanable, easier to understand and test.
 
 Documentation https://golang.org
@@ -84,10 +85,10 @@ The `&` operator generates a pointer to its operand.
 ### Question / Answer about Pointers
 
 **Question**: Whenever you have a pointer in the receiver of a function (see snippet), what does that say to us?
-```
+```go
 func (p *person) updateName(newFirstName string) {
 ```
-> **Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value (no dereferencing!!!).
+> **Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value (no dereferencing here!!!).
 
 
 **Question**: Whenever you pass an integer, float, string, or struct into a function, what does Go do with that argument?
@@ -324,3 +325,39 @@ func (textFileReader) Read(bs []byte) (int, error) {
 What would you say?
 
 > **Answer**: I'd say that while the `testFileReader` type conforms to the requirements of the `Reader` interface, it doesn't actually implement the desired behaviour of reading a file from the hard drive.
+
+
+## Go-Routines and Channels
+
+Execution logic for go routines with one CPU:
+
+<table><tr><td>
+<img align="center" src="./pics/go_routines.png" title="Reader Interface" width="650">
+</td></tr></table>
+
+Execution logic for go routines with multiple CPUs:
+
+<table><tr><td>
+<img align="center" src="./pics/go_routines_mult_cpus.png" title="Reader Interface" width="650">
+</td></tr></table>
+
+This is truly executed in parallel!
+
+What's happening when working with go routines:
+
+<table><tr><td>
+<img align="center" src="./pics/main_child.png" title="Reader Interface" width="650">
+</td></tr></table>
+
+To communicate between go routines we use _channels_.
+
+<table><tr><td>
+<img align="center" src="./pics/channel.png" title="Reader Interface" width="650">
+</td></tr></table>
+
+Channels are typed:
+
+<table><tr><td>
+<img align="center" src="./pics/typed_channels.png" title="Reader Interface" width="650">
+</td></tr></table>
+
