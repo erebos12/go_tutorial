@@ -1,34 +1,74 @@
 # Go - Idioms & Best Practices
 
-* Not an OO language !!!
+## Abstract
+
+* Golang is a multi paradigm programming language. It has aspects of object-orientation (structs), procedural and functional programming.
+
+* Golang is not a functional language but have a lot of features that enables us to applies functional principles in the development, turning our code more elegant, concise, maintanable, easier to understand and test.
+
 
 * Statically typed language (see [Statically vs Dynamically Typed Languages](https://android.jlelse.eu/magic-lies-here-statically-typed-vs-dynamically-typed-languages-d151c7f95e2b))
   * A language is dynamically-typed if the type of a variable is checked during run-time. 
   * A language is statically-typed if the type of a variable is known at compile-time instead of at run-time. 
 
 * Pass-by-Value language
+  * By definition, pass by value means you are making a copy in memory of the actual parameter's value that is passed in, a copy of the contents of the actual parameter. 
+  Use pass by value when when you are only "using" (READ-ONLY) the parameter for some computation, not changing it for the client program.
+  * In pass by reference (also called pass by address), a copy of the address of the actual parameter is stored. 
+  Use pass by reference when you are CHANGING (UPDATE) the parameter passed in by the client program.
+  * So Go is "always" copying the parameters in functions. BUT, It wouldn't be fun if there are no exceptions ;-). So there are exceptions !!! 
   
-Golang is a multi paradigm programming language. It has aspects of object-orientation (structs), procedural and functional programming.
-
-Golang is not a functional language but have a lot of features that enables us to applies functional principles in the development, turning our code more elegant, concise, maintanable, easier to understand and test.
 
 Documentation https://golang.org
 
 ## From OO Aproach to Go Approach
 
-type <name_of_type> <datatype>
+* Custom type-definition (like classes in OO languages), in go you define your own types by `type` keyword. 
+    * For example a `type` of `struct` or `type` of `interface`. 
+* `struct` is a typed collection of fields. They’re useful for grouping data together to form records.
+* More about `interfaces` later! 
+
 
 ## Receiver Functions
 
 Receiver vs. Argument !
 
-Receiver can just be of type:
-
 ```go
-type name struct {...}
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age int
+}
+
+func (p person) print() {
+	fmt.Printf("%s is of %d years \n", p.name, p.age)
+}
+
+func main() {
+	alex := person{
+		name: "Alex",
+		age: 41,
+	}
+	alex.print()
+}
 ```
- So plain type as map or slice cannot be defined as a receiver. That's why you
+If you notice the print function, it is a little unusual. Unlike other languages, in go we have a parameter list before the function name.
+This parameter (p of type person in the example) is what makes the print() function a receiver function. More precisely, the print() function is a function which can receive a person.
+
+Note: So plain type as map or slice cannot be defined as a receiver. That's why you
 need to wrap these types in a `struct`.
+
+### Benefits
+* The person type has no knowledge of the receiver
+* Works well with 'interfaces' (see later)
+
+### Receiver vs Function Argument
+
+When to use receiver or function argument, read this:
+[Golang Receiver vs Function Argument](https://grisha.org/blog/2016/09/22/golang-receiver-vs-function/)
 
 ## Unused variables with "_"
 
