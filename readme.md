@@ -16,22 +16,30 @@
   Use pass by value when when you are only "using" (READ-ONLY) the parameter for some computation, not changing it for the client program.
   * In pass by reference (also called pass by address), a copy of the address of the actual parameter is stored. 
   Use pass by reference when you are CHANGING (UPDATE) the parameter passed in by the client program.
-  * So Go is "always" copying the parameters in functions. BUT, It wouldn't be fun if there are no exceptions ;-). So there are exceptions !!! 
+  * So **Go** is by default copying the parameters in functions. BUT, it wouldn't be fun if there are no exceptions ;-). So there are exceptions (see "value-types" vs. reference-types") !!! https://drive.google.com/file/d/1ENMX7ASI7FPl54VKh0xF6Zk1lNT__5Nh/view
   
 
 Documentation https://golang.org
+
+## Core Feature Overview
+
+- Reference & Value types
+- Pointers
+- structs & Receiver Functions (Go pendant to member function in OO)
+- Interfaces (2 meanings)
+- Channels
 
 ## From OO Aproach to Go Approach
 
 * Custom type-definition (like classes in OO languages), in go you define your own types by `type` keyword. 
     * For example a `type` of `struct` or `type` of `interface`. 
 * `struct` is a typed collection of fields. They’re useful for grouping data together to form records.
+* Receiver function which can receive a certain type of variable
 * More about `interfaces` later! 
-
 
 ## Receiver Functions
 
-Receiver vs. Argument !
+By a *Receiver Function* we assign a function to variables (structs). You can say that the function "belongs" to the struct. Or the function can "receive" this specific type of struct. See following example :
 
 ```go
 package main
@@ -67,23 +75,54 @@ need to wrap these types in a `struct`.
 
 ### Receiver vs Function Argument
 
-When to use receiver or function argument, read this:
-[Golang Receiver vs Function Argument](https://grisha.org/blog/2016/09/22/golang-receiver-vs-function/)
+When to use receiver or function argument, read this: [Golang Receiver vs Function Argument](https://grisha.org/blog/2016/09/22/golang-receiver-vs-function/)
+
+## Multiple Return Values
+
+Return values are listed in the end of the functions signature. When you have more than one return value, you have to use brackets.
+
+```go
+func delete() (string, error) {
+  ...
+}
+// calling the function
+info, err := delete()
+```
 
 ## Unused variables with "_"
 
+The Go compiler throws an error in case you don't use a variable you have defined. But sometimes you don't need a variable. Then you can use the `_` (underscore) which states that you don't use the variable and the compiler is happy:
+
+```go
+func save() (string, error) {
+  ...
+}
+_, err := save() // I do not care about the returned string
+```
+
 ## Slices
 
-sliceName[startIndexIncluding:upToNotIncludingIndex]
+`sliceName[startIndexIncluding:upToNotIncludingIndex]`
 
 i.e. slice[0:2] - give me index[0] and index[1] BUT NOT index[2]
 => 0 can be left out since Go would automatically assume the 0 index
 i.e. slice[:2]
 Same goes for end index!
 
-## Multiple Return Values
-
 ## Public / Private Functions
+
+A package is the smallest unit of private encap­sulation in Go.
+
+- All identifiers defined within a package are visible throughout that package.
+- When importing a package you can access only its **exported** identifiers.
+- An identifier (variable/function) is exported if it begins with a **capital letter**.
+
+```go
+type Request struct {
+	 Message string   // variable Message is public - accessible for other packages
+   code    int32    // variable code is private - accessible only within the package
+}
+```
 
 ## Type Conversion
 Many interfaces in Go work with slice-of-bytes ([]byte). So we need to convert
@@ -115,8 +154,6 @@ As an analogy, a page number in a book's index could be considered a pointer to 
 In Go a pointer is represented using the `*` (asterisk) character followed by the type of the stored value.
 `*` is also used to dereference pointer variables. Dereferencing a pointer gives us access to the value the pointer points to.
 
-
-
 The `&` operator generates a pointer to its operand.
 
 1. To turn an address into a value then use `*address`
@@ -130,8 +167,8 @@ func (p *person) updateName(newFirstName string) {
 ```
 > **Answer**: It specifies the type of the receiver that the function expetcs. It is NOT turning the pointer address into a value (no dereferencing here!!!).
 
-
 **Question**: Whenever you pass an integer, float, string, or struct into a function, what does Go do with that argument?
+
 > **Answer**: It creates a copy of each argument, and these copies are used inside of the function.
 
 **Question**: What is the &  operator used for?
@@ -140,7 +177,7 @@ func (p *person) updateName(newFirstName string) {
 **Question**: When you see a `*` operator in front of a pointer, what will it turn the pointer into?
 > **Answer**: A value.
 
-**Question**: Take a look at the following program.  The changeLatitude function expects a receiver of type pointer to a location struct , but in the main function the receiver is a value type of a struct.  What will happen when this code is executed?
+**Question**: Take a look at the following program.  The changeLatitude function expects a receiver of type pointer to a location struct, but in the main function the receiver is a value type of a struct.  What will happen when this code is executed?
 
 ```go
 package main
@@ -164,12 +201,11 @@ func main() {
 }
  
 func (lo *location) changeLatitude() {
- (*lo).latitude = 41.0
+   lo.latitude = 41.0
 }
 
 ```
 > **Answer**: This program uses a shortcut, where Go will automatically assume even though ``` newYork.changeLatitude() ``` is using a value type we probably meant to pass in a pointer to the ```newYork``` struct.
-
 
 **Question**: Here's a tricky one!  What will the following program print out?
 
@@ -214,8 +250,9 @@ It's not like passing a `struct` which would be copied. slices (and other types)
 A ```slice``` in Go consists of a pointer to the head of an array, the capacity of the array and the length of the array. These metadata of the slice are stored in a separate register address. So when we call a function with a slice then Go creates a copy (call-by-value) of the slice metadata in memory, not a copy of the referenced array. See image below:
 
 <table><tr><td>
-<img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="500">
+<img align="center" src="./pics/slice_mem.png" title="Passing a slice to a function" width="200">
 </td></tr></table>
+
 
 In Go we refer to these kind of types as "**reference types**" which all have this behaviour. All other types, which will be copied (call-by-value), are called "**value types**".
 
@@ -227,21 +264,28 @@ Below an overview of all "**reference types**" and "**value types**":
 ## struct vs. map
 
 <table><tr><td>
-<img align="center" src="./pics/structs_vs_map.png" title="struct vs. map" width="650">
+<img align="center" src="./pics/structs_vs_map.png" title="struct vs. map" width="250">
 </td></tr></table>
+
 
 * Over a `struct` we cannot iterate!
 * `map` is a more dynamic data type. It can grow or shrink at runtime. In opposite the `struct` has always the same attributes, so its a more static data type.
 
-## Interfaces
+## Interfaces 
 
-In Java you say `xyz implements interfaceXYZ` to describe xyz is an implementor of an interface.
-In Go you just implement exactly the same function (same signature) which is defined in an interface for a specific receiver.
-There is no explicit way (syntax) to link together receiver type and interface type because interfaces are implicit. Implicitly, they are connected with each other.
+See [Polymorphism with Interfaces](https://medium.com/technofunnel/polymorphism-with-golang-interfaces-b2f58a05b221)
+
+1. Interfaces define the functional contract  (like in Java with methods to implement)
+2. Interfaces are Types in Golang
+
+
+
+
 
 <table><tr><td>
-<img align="center" src="./pics/interfaces.png" title="About interfaces" width="650">
+<img align="center" src="./pics/interfaces.png" title="About interfaces" width="150">
 </td></tr></table>
+
 
 ### Composition of Interfaces
 
