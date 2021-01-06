@@ -283,13 +283,10 @@ See [Polymorphism with Interfaces](https://medium.com/technofunnel/polymorphism-
 1. Interfaces define the functional contract  (like in Java with methods to implement)
 2. Interfaces are Types in Golang
 
-
-
-
-
 <table><tr><td>
-<img align="center" src="./pics/interfaces.png" title="About interfaces" width="150">
+<img align="center" src="./pics/interfaces.png" title="About interfaces" width="750">
 </td></tr></table>
+
 
 
 ### Composition of Interfaces
