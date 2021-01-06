@@ -1,16 +1,17 @@
 # Go - Idioms & Best Practices
 
-## Abstract
+## A few characteristics
 
+* Created by Robert Griesemer, Rob Pike, and Ken Thompson at Google by 2009. It is open source, so anybody can contribute to it and propose new features.
+* Goal was to make Google’s software engineers lives easier, as an alternative to C++. It is targeted to systems programming, such as cloud systems, distributed systems and microservices.
+* Go code is compiled very fast! This is one of the key aspects that the creators tried to improve regarding C and C++, and they did!
 * Golang is a multi paradigm programming language. It has aspects of object-orientation (structs), procedural and functional programming.
-
 * Golang is not a functional language but have a lot of features that enables us to applies functional principles in the development, turning our code more elegant, concise, maintanable, easier to understand and test.
 
 
 * Statically typed language (see [Statically vs Dynamically Typed Languages](https://android.jlelse.eu/magic-lies-here-statically-typed-vs-dynamically-typed-languages-d151c7f95e2b))
   * A language is dynamically-typed if the type of a variable is checked during run-time. 
   * A language is statically-typed if the type of a variable is known at compile-time instead of at run-time. 
-
 * Pass-by-Value language
   * By definition, pass by value means you are making a copy in memory of the actual parameter's value that is passed in, a copy of the contents of the actual parameter. 
   Use pass by value when when you are only "using" (READ-ONLY) the parameter for some computation, not changing it for the client program.
@@ -18,6 +19,10 @@
   Use pass by reference when you are CHANGING (UPDATE) the parameter passed in by the client program.
   * So **Go** is by default copying the parameters in functions. BUT, it wouldn't be fun if there are no exceptions ;-). So there are exceptions (see "value-types" vs. reference-types") !!! https://drive.google.com/file/d/1ENMX7ASI7FPl54VKh0xF6Zk1lNT__5Nh/view
   
+* Garbage collection
+
+  * Different to C++ where you always manually have to delete whenever you allocate an object (new/delete idiom in C++)
+* Go supports built-in concurrency (see `channels`) 
 
 Documentation https://golang.org
 
@@ -27,7 +32,7 @@ Documentation https://golang.org
 - Pointers
 - structs & Receiver Functions (Go pendant to member function in OO)
 - Interfaces (2 meanings)
-- Channels
+- Channels for concurrency
 
 ## From OO Aproach to Go Approach
 
