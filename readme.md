@@ -286,6 +286,8 @@ See [Polymorphism with Interfaces](https://medium.com/technofunnel/polymorphism-
    - An example is rectangle and circle have area function and the shape interface groups these methods
    - So a function which prints something for ALL types of shape would use this interface as an argument
 
+- See YouTube video https://www.youtube.com/watch?v=lbW-KVdIXaY
+
 <table><tr><td>
 <img align="center" src="./pics/interfaces.png" title="About interfaces" width="750">
 </td></tr></table>
