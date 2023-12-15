@@ -281,10 +281,10 @@ Below an overview of all "**reference types**" and "**value types**":
 See [Polymorphism with Interfaces](https://medium.com/technofunnel/polymorphism-with-golang-interfaces-b2f58a05b221)
 
 1. Interfaces define the functional contract  (like in Java with methods to implement)
+2. Interfaces are Types in Golang
    - Group types together based on their methods (different types with same methods)
    - An example is rectangle and circle have area function and the shape interface groups these methods
    - So a function which prints something for ALL types of shape would use this interface as an argument
-3. Interfaces are Types in Golang
 
 <table><tr><td>
 <img align="center" src="./pics/interfaces.png" title="About interfaces" width="750">
