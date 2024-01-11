@@ -1,9 +1,25 @@
 package main
 
+import "fmt"
+
 func main() {
-	//cards := newDeck()
-	//cards.saveToFile("my_cards")
-	cards := newDeckFromFile("my_cards")
-	cards.shuffle()
-	cards.print()
+	m := map[string]int{
+		"hello": 5,
+		"world": 0,
+	}
+
+	val, ok := m["hello"]
+	if ok {
+		fmt.Println(val)
+	} else {
+		fmt.Println("No value found")
+	}
+
+	val, ok = m["none"]
+	if ok {
+		fmt.Println(val)
+	} else {
+		fmt.Println("No value found")
+	}
+
 }
