@@ -1,0 +1,107 @@
+<mxfile host="Electron" modified="2024-01-20T09:27:17.148Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="A4pDlst03wRghtF31L-w" version="22.0.3" type="device">
+  <diagram name="Seite-1" id="-j7jOAXPlli1O-9Jwtnp">
+    <mxGraphModel dx="1089" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FfoKwz1rjradvkiBGKCc-1" value="Dependency Injection in Go via Interfaces" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="40" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-2" value="interface - Method X" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="290" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-3" value="struct1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="400" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-4" value="MethodX" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="82" y="400" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-5" value="struct2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="174" y="400" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-6" value="MethodX" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="400" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-7" value="structN" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="400" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-8" value="MethodX" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="455" y="400" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-9" value="" style="endArrow=none;html=1;rounded=0;entryX=0.455;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-3" target="FfoKwz1rjradvkiBGKCc-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="363" y="530" as="sourcePoint" />
+            <mxPoint x="413" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-10" value="" style="endArrow=none;html=1;rounded=0;entryX=0.442;entryY=0.944;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-5" target="FfoKwz1rjradvkiBGKCc-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="203" y="380" as="sourcePoint" />
+            <mxPoint x="383" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-11" value="" style="endArrow=none;html=1;rounded=0;entryX=0.425;entryY=0.989;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-7" target="FfoKwz1rjradvkiBGKCc-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="347" y="380" as="sourcePoint" />
+            <mxPoint x="382" y="328" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-12" value="...." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="405" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-14" value="struct InterfaceConsumer" style="swimlane;whiteSpace=wrap;html=1;startSize=40;" vertex="1" parent="1">
+          <mxGeometry x="160" y="110" width="168" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-17" value="interface" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="FfoKwz1rjradvkiBGKCc-14">
+          <mxGeometry x="36" y="42" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-15" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1.005;exitY=0.544;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-17" target="FfoKwz1rjradvkiBGKCc-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="203" y="230" as="sourcePoint" />
+            <mxPoint x="283" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-16" value="interface as member" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="FfoKwz1rjradvkiBGKCc-15">
+          <mxGeometry x="0.3178" y="1" relative="1" as="geometry">
+            <mxPoint x="11" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-20" value="constructor method with&lt;br&gt;interface as argument" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="322" y="185" width="184" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-21" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.725;entryY=-0.056;entryDx=0;entryDy=0;exitX=0.638;exitY=1.042;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-20" target="FfoKwz1rjradvkiBGKCc-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="213" y="240" as="sourcePoint" />
+            <mxPoint x="333" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-22" value="interface as argument" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="FfoKwz1rjradvkiBGKCc-21">
+          <mxGeometry x="0.3178" y="1" relative="1" as="geometry">
+            <mxPoint x="16" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-25" value="main() (End-User)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="185" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-26" value="1. constructor with interface&lt;br&gt;as argument&lt;br&gt;&lt;br&gt;2. call public method with custom&lt;br&gt;argument" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="FfoKwz1rjradvkiBGKCc-25">
+          <mxGeometry x="-7" y="33" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-29" value="public method with&amp;nbsp;&lt;br&gt;custom arguments" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="316" y="140" width="184" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-30" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.005;exitY=0.73;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-26" target="FfoKwz1rjradvkiBGKCc-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="220" as="sourcePoint" />
+            <mxPoint x="390" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FfoKwz1rjradvkiBGKCc-31" value="" style="endArrow=none;html=1;rounded=0;entryX=0.989;entryY=0.392;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="FfoKwz1rjradvkiBGKCc-26" target="FfoKwz1rjradvkiBGKCc-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="584" y="294" as="sourcePoint" />
+            <mxPoint x="510" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
